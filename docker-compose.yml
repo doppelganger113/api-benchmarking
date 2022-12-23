@@ -1,0 +1,72 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:13
+    container_name: api-benchmark-db
+    restart: always
+    environment:
+      # postgresql://user:1234@localhost/test
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: test
+    ports:
+      - "5432:5432"
+
+  cache:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  #  pgadmin:
+  #    image: dpage/pgadmin4:4.8
+  #    container_name: bunker_pgadmin_go
+  #    restart: always
+  #    ports:
+  #      - 8080:80
+  #    links:
+  #      - db
+  #    environment:
+  #      PGADMIN_DEFAULT_EMAIL: user@domain.com
+  #      PGADMIN_DEFAULT_PASSWORD: SuperSecret
+#  fastify-nestjs-todo:
+#    build: fastify_nestjs
+#    container_name: fastify-nestjs-todo
+#    ports:
+#      - "3000:3000"
+#    environment:
+#      DB_URL: 'postgresql://postgres:jhjgahdh3424ghdfsgjhk2432afs@test.cqbz8vdev8iv.eu-central-1.rds.amazonaws.com:5432/test?sslmode=disable'
+#
+#  nestjs-todo:
+#    build: ./nestjs
+#    container_name: nestjs-todo
+#    ports:
+#      - "3010:3000"
+#    environment:
+#      DB_URL: 'postgresql://postgres:jhjgahdh3424ghdfsgjhk2432afs@test.cqbz8vdev8iv.eu-central-1.rds.amazonaws.com:5432/test?sslmode=disable'
+#
+#  go-todo:
+#    build: ./go-chi
+#    container_name: go-todo
+#    ports:
+#      - "3020:3000"
+#    environment:
+#      DB_URL: 'postgresql://postgres:jhjgahdh3424ghdfsgjhk2432afs@test.cqbz8vdev8iv.eu-central-1.rds.amazonaws.com:5432/test?sslmode=disable'
+#
+#  spring-todo:
+#    build: ./spring
+#    container_name: spring-todo
+#    ports:
+#      - "3030:3000"
+#    environment:
+#      SPRING_DATASOURCE_URL: 'jdbc:postgresql://test.cqbz8vdev8iv.eu-central-1.rds.amazonaws.com:5432/test?sslmode=disable'
+#      SPRING_DATASOURCE_USERNAME: postgres
+#      SPRING_DATASOURCE_PASSWORD: jhjgahdh3424ghdfsgjhk2432afs
+#
+#  spring-reactive-todo:
+#    build: ./spring-reactive
+#    container_name: spring-reactive-todo
+#    ports:
+#      - "3040:3000"
+#    environment:
+#      SPRING_R2DBC_URL: 'r2dbc:postgresql://postgres:jhjgahdh3424ghdfsgjhk2432afs@test.cqbz8vdev8iv.eu-central-1.rds.amazonaws.com/test?sslmode=disable'

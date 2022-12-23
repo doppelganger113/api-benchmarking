@@ -1,0 +1,9 @@
+.dockerignore
+bin
+Dockerfile
+.git
+.gitignore
+.idea
+.DS_Store
+README.md
+Dockerfile
